@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/clinic/Navbar";
 import { Hero } from "@/components/clinic/Hero";
+import { Services } from "@/components/clinic/Services";
 
 export default function Home() {
   return (
@@ -7,8 +8,9 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <Services />
         <p className="container section-y text-body text-muted-foreground">
-          Especialidades e demais seções serão adicionadas em breve.
+          Demais seções serão adicionadas em breve.
         </p>
       </main>
     </>
