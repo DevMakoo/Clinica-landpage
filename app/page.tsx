@@ -1,12 +1,14 @@
 import { Navbar } from "@/components/clinic/Navbar";
+import { Hero } from "@/components/clinic/Hero";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="container section-y pt-32 md:pt-40">
-        <p className="text-body text-muted-foreground">
-          Hero, Especialidades e demais seções serão adicionadas em breve.
+      <main>
+        <Hero />
+        <p className="container section-y text-body text-muted-foreground">
+          Especialidades e demais seções serão adicionadas em breve.
         </p>
       </main>
     </>
