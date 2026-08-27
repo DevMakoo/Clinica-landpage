@@ -5,6 +5,7 @@ import { About } from "@/components/clinic/About";
 import { Team } from "@/components/clinic/Team";
 import { Testimonials } from "@/components/clinic/Testimonials";
 import { FAQ } from "@/components/clinic/FAQ";
+import { CTA } from "@/components/clinic/CTA";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <Team />
         <Testimonials />
         <FAQ />
+        <CTA />
         <p className="container section-y text-body text-muted-foreground">
           Demais seções serão adicionadas em breve.
         </p>
