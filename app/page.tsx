@@ -7,6 +7,7 @@ import { Testimonials } from "@/components/clinic/Testimonials";
 import { FAQ } from "@/components/clinic/FAQ";
 import { CTA } from "@/components/clinic/CTA";
 import { Location } from "@/components/clinic/Location";
+import { Footer } from "@/components/clinic/Footer";
 
 export default function Home() {
   return (
@@ -21,10 +22,8 @@ export default function Home() {
         <FAQ />
         <CTA />
         <Location />
-        <p className="container section-y text-body text-muted-foreground">
-          Demais seções serão adicionadas em breve.
-        </p>
       </main>
+      <Footer />
     </>
   );
 }
