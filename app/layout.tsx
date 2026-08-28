@@ -23,6 +23,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: clinic.name,
     description: clinic.tagline,
+    siteName: clinic.name,
+    locale: "pt_BR",
     type: "website",
   },
 };
