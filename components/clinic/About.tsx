@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion, MotionConfig, type Transition } from "motion/react";
 import { clinic } from "@/data/clinic";
@@ -94,27 +95,14 @@ export function About() {
             className="absolute -right-4 -top-4 hidden h-24 w-24 rounded-lg border border-gold/40 md:block"
           />
 
-          {/*
-            Placeholder do visual institucional da seção "A Clínica".
-            Quando houver uma fotografia real do espaço/ambiente da clínica,
-            substitua o conteúdo interno deste bloco por um next/image
-            apontando para um arquivo em public/images/ (ex.:
-            public/images/about.jpg), mantendo as classes de aspect ratio,
-            radius e shadow abaixo.
-          */}
-          <div
-            role="img"
-            aria-label="Espaço reservado para fotografia do ambiente da clínica"
-            className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-border bg-surface shadow-soft"
-          >
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span
-                aria-hidden
-                className="text-small font-medium tracking-[0.3em] text-primary/20"
-              >
-                {clinic.specialty.toUpperCase()}
-              </span>
-            </div>
+          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-border bg-surface shadow-soft">
+            <Image
+              src={clinic.images.about.src}
+              alt={clinic.images.about.alt}
+              fill
+              sizes="(min-width: 768px) 50vw, 100vw"
+              className="object-cover"
+            />
           </div>
         </motion.div>
       </section>

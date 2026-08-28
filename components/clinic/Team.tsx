@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, MotionConfig, type Transition } from "motion/react";
 import { clinic } from "@/data/clinic";
 
@@ -75,16 +76,30 @@ export function Team() {
                   transition: { duration: 0.4, ease: "easeOut" },
                 },
               }}
-              role="img"
-              aria-label={`Espaço reservado para fotografia de ${featured.name}`}
-              className="flex aspect-[3/4] w-full items-center justify-center overflow-hidden rounded-lg border border-border bg-surface shadow-soft"
+              role={featured.image ? undefined : "img"}
+              aria-label={
+                featured.image
+                  ? undefined
+                  : `Espaço reservado para fotografia de ${featured.name}`
+              }
+              className="relative flex aspect-[3/4] w-full items-center justify-center overflow-hidden rounded-lg border border-border bg-surface shadow-soft"
             >
-              <span
-                aria-hidden
-                className="font-heading text-[5rem] text-primary/15"
-              >
-                {initials(featured.name)}
-              </span>
+              {featured.image ? (
+                <Image
+                  src={featured.image.src}
+                  alt={featured.image.alt}
+                  fill
+                  sizes="(min-width: 768px) 40vw, 90vw"
+                  className="object-cover"
+                />
+              ) : (
+                <span
+                  aria-hidden
+                  className="font-heading text-[5rem] text-primary/15"
+                >
+                  {initials(featured.name)}
+                </span>
+              )}
             </motion.div>
 
             <div className="mt-6 flex flex-col gap-2">
@@ -128,16 +143,30 @@ export function Team() {
                         transition: { duration: 0.4, ease: "easeOut" },
                       },
                     }}
-                    role="img"
-                    aria-label={`Espaço reservado para fotografia de ${professional.name}`}
-                    className="flex aspect-[3/4] w-24 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-surface shadow-soft sm:w-28"
+                    role={professional.image ? undefined : "img"}
+                    aria-label={
+                      professional.image
+                        ? undefined
+                        : `Espaço reservado para fotografia de ${professional.name}`
+                    }
+                    className="relative flex aspect-[3/4] w-24 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-surface shadow-soft sm:w-28"
                   >
-                    <span
-                      aria-hidden
-                      className="font-heading text-2xl text-primary/15"
-                    >
-                      {initials(professional.name)}
-                    </span>
+                    {professional.image ? (
+                      <Image
+                        src={professional.image.src}
+                        alt={professional.image.alt}
+                        fill
+                        sizes="112px"
+                        className="object-cover"
+                      />
+                    ) : (
+                      <span
+                        aria-hidden
+                        className="font-heading text-2xl text-primary/15"
+                      >
+                        {initials(professional.name)}
+                      </span>
+                    )}
                   </motion.div>
 
                   <div className="flex flex-col gap-1">

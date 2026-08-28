@@ -2,6 +2,7 @@
 
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { motion, MotionConfig, type Transition } from "motion/react";
+import Image from "next/image";
 import { clinic } from "@/data/clinic";
 
 const EASE: Transition["ease"] = [0.16, 1, 0.3, 1];
@@ -130,18 +131,14 @@ export function Location() {
             className="absolute -right-4 -top-4 hidden h-24 w-24 rounded-lg border border-gold/40 md:block"
           />
 
-          <div
-            role="img"
-            aria-label={`Área reservada para mapa. Endereço: ${clinic.address}`}
-            className="relative flex aspect-[4/3] w-full flex-col items-center justify-center gap-3 overflow-hidden rounded-xl border border-border bg-surface p-8 text-center shadow-soft md:aspect-[16/12]"
-          >
-            <MapPin aria-hidden="true" className="h-8 w-8 text-gold" />
-            <span className="text-small font-medium tracking-[0.2em] text-primary/40">
-              MAPA EM BREVE
-            </span>
-            <span className="max-w-[280px] text-small text-muted-foreground">
-              {clinic.address}
-            </span>
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-border bg-surface shadow-soft md:aspect-[16/12]">
+            <Image
+              src={clinic.images.location.src}
+              alt={clinic.images.location.alt}
+              fill
+              sizes="(min-width: 768px) 50vw, 100vw"
+              className="object-cover"
+            />
           </div>
         </motion.div>
       </section>

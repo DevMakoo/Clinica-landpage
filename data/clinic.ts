@@ -10,12 +10,31 @@ export interface ClinicService {
   description: string;
 }
 
+/**
+ * Uma imagem com o alt text que a acompanha. O alt vive junto do dado (não é
+ * derivado no componente) porque descreve o conteúdo real da fotografia —
+ * quando a foto for trocada por uma nova clínica, o alt deve ser trocado
+ * junto.
+ */
+export interface ClinicImage {
+  src: string;
+  alt: string;
+}
+
+/** Fotografias institucionais usadas nas seções Hero, A Clínica e Localização. */
+export interface ClinicImages {
+  hero: ClinicImage;
+  about: ClinicImage;
+  location: ClinicImage;
+}
+
 export interface ClinicProfessional {
   id: string;
   name: string;
   role: string;
   bio: string;
-  photoUrl?: string;
+  /** Opcional: quando ausente, o cartão do profissional usa o placeholder de iniciais. */
+  image?: ClinicImage;
 }
 
 export interface ClinicTestimonial {
@@ -40,6 +59,7 @@ export interface ClinicData {
   email: string;
   address: string;
   hours: ClinicHours[];
+  images: ClinicImages;
   services: ClinicService[];
   professionals: ClinicProfessional[];
   testimonials: ClinicTestimonial[];
@@ -58,6 +78,20 @@ export const clinic: ClinicData = {
     { day: "Segunda a Sexta", open: "08:00", close: "19:00" },
     { day: "Sábado", open: "09:00", close: "13:00" },
   ],
+  images: {
+    hero: {
+      src: "/images/hero/hero-clinic.jpg",
+      alt: "Médico sorridente trabalhando em um ambiente clínico claro e acolhedor",
+    },
+    about: {
+      src: "/images/about/about-clinic.jpg",
+      alt: "Sala de espera moderna e minimalista, com poltronas estofadas e acabamento em madeira",
+    },
+    location: {
+      src: "/images/location/clinic-exterior.jpg",
+      alt: "Fachada branca e minimalista de edifício, com janelas simétricas sob céu azul",
+    },
+  },
   services: [
     {
       id: "checkup",
@@ -84,12 +118,20 @@ export const clinic: ClinicData = {
       name: "Dr. Ricardo Carvalho",
       role: "Clínico Geral",
       bio: "Mais de 15 anos de experiência em medicina preventiva.",
+      image: {
+        src: "/images/team/team-ricardo.jpg",
+        alt: "Retrato profissional em ambiente clínico, jaleco branco e estetoscópio",
+      },
     },
     {
       id: "dra-almeida",
       name: "Dra. Beatriz Almeida",
       role: "Cardiologista",
       bio: "Especialista em saúde cardiovascular e check-ups executivos.",
+      image: {
+        src: "/images/team/team-beatriz.jpg",
+        alt: "Retrato profissional em estúdio, óculos e jaleco branco, sorriso acolhedor",
+      },
     },
   ],
   testimonials: [

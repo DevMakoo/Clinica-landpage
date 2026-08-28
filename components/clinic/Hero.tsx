@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion, MotionConfig, type Transition } from "motion/react";
 import { clinic } from "@/data/clinic";
@@ -96,13 +97,6 @@ export function Hero() {
           </motion.ul>
         </div>
 
-        {/*
-          Placeholder da imagem principal do Hero.
-          Assim que houver uma fotografia real da clínica, substitua o
-          conteúdo interno deste bloco por um next/image apontando para
-          um arquivo em public/images/ (ex.: public/images/hero.jpg),
-          mantendo as classes de aspect ratio, radius e shadow abaixo.
-        */}
         <motion.div
           initial={{ opacity: 0, scale: 0.97 }}
           animate={{
@@ -114,18 +108,16 @@ export function Hero() {
             scale: 1.03,
             transition: { duration: 0.4, ease: "easeOut" },
           }}
-          role="img"
-          aria-label="Espaço reservado para fotografia da clínica"
           className="relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-border bg-surface shadow-soft md:aspect-[3/4]"
         >
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span
-              aria-hidden
-              className="font-heading text-[7rem] leading-none text-primary/10 md:text-[9rem]"
-            >
-              {clinic.name.charAt(0)}
-            </span>
-          </div>
+          <Image
+            src={clinic.images.hero.src}
+            alt={clinic.images.hero.alt}
+            fill
+            priority
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="object-cover"
+          />
         </motion.div>
       </section>
     </MotionConfig>
