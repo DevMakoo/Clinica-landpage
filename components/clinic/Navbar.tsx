@@ -46,7 +46,7 @@ export function Navbar() {
           {clinic.name}
         </Link>
 
-        <ul className="hidden items-center gap-10 md:flex">
+        <ul className="hidden items-center gap-10 lg:flex">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <Link
@@ -63,7 +63,7 @@ export function Navbar() {
           href={whatsappHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-small font-medium text-primary-foreground transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-dark md:inline-flex"
+          className="hidden items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-small font-medium text-primary-foreground transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-dark lg:inline-flex"
         >
           Agendar consulta <span aria-hidden>→</span>
         </a>
@@ -71,13 +71,13 @@ export function Navbar() {
         <Dialog.Root open={open} onOpenChange={setOpen}>
           <Dialog.Trigger
             aria-label={open ? "Fechar menu" : "Abrir menu"}
-            className="inline-flex items-center justify-center rounded-full p-2 text-foreground transition-colors hover:text-primary md:hidden"
+            className="inline-flex items-center justify-center rounded-full p-2 text-foreground transition-colors hover:text-primary lg:hidden"
           >
             <Menu aria-hidden className="size-6" />
           </Dialog.Trigger>
           <Dialog.Portal>
             <Dialog.Backdrop className="fixed inset-0 z-50 bg-foreground/30 opacity-100 backdrop-blur-sm transition-opacity duration-300 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0" />
-            <Dialog.Popup className="fixed inset-y-0 right-0 z-50 flex w-full max-w-sm translate-x-0 flex-col gap-8 bg-background px-8 py-8 shadow-soft transition-transform duration-300 data-[ending-style]:translate-x-full data-[starting-style]:translate-x-full md:hidden">
+            <Dialog.Popup className="fixed inset-y-0 right-0 z-50 flex w-full max-w-sm translate-x-0 flex-col gap-8 bg-background px-8 py-8 shadow-soft transition-transform duration-300 data-[ending-style]:translate-x-full data-[starting-style]:translate-x-full lg:hidden">
               <div className="flex items-center justify-between">
                 <span className="font-heading text-lg text-primary">
                   {clinic.name}

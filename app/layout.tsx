@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
+import { clinic } from "@/data/clinic";
 import "./globals.css";
 
 const playfairDisplay = Playfair_Display({
@@ -15,15 +16,13 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Clínica Premium",
-    template: "%s | Clínica Premium",
+    default: clinic.name,
+    template: `%s | ${clinic.name}`,
   },
-  description:
-    "Atendimento médico premium, humano e de confiança.",
+  description: clinic.tagline,
   openGraph: {
-    title: "Clínica Premium",
-    description:
-      "Atendimento médico premium, humano e de confiança.",
+    title: clinic.name,
+    description: clinic.tagline,
     type: "website",
   },
 };
